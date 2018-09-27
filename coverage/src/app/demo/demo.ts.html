@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/demo/demo.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/demo</a> demo.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.56% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>205/208</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.38% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>62/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">99.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>133/134</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">65x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* tslint:disable:forin */
+import { Component, ContentChildren, Directive, EventEmitter,
+         Injectable, Input, Output, Optional,
+         HostBinding, HostListener,
+         OnInit, OnChanges, OnDestroy,
+         Pipe, PipeTransform,
+         SimpleChange } from '@angular/core';
+&nbsp;
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+&nbsp;
+////////// The App: Services and Components for the tests. //////////////
+&nbsp;
+export class Hero {
+  name: string;
+}
+&nbsp;
+////////// Services ///////////////
+@Injectable()
+export class ValueService {
+  protected value = 'real value';
+&nbsp;
+  getValue() { return this.value; }
+  setValue(value: string) { this.value = value; }
+&nbsp;
+  getObservableValue() { return of('observable value'); }
+&nbsp;
+  getPromiseValue() { return Promise.resolve('promise value'); }
+&nbsp;
+  getObservableDelayValue() {
+    return of('observable delay value').pipe(delay(10));
+  }
+}
+&nbsp;
+@Injectable()
+export class MasterService {
+  constructor(private valueService: ValueService) { }
+  getValue() { return this.valueService.getValue(); }
+}
+&nbsp;
+/////////// Pipe ////////////////
+/*
+ * Reverse the input string.
+*/
+@Pipe({ name: 'reverse' })
+export class ReversePipe implements PipeTransform {
+  transform(s: string) {
+    let r = '';
+    for (let i = s.length; i; )  { r += s[--i]; };
+    return r;
+  }
+}
+&nbsp;
+//////////// Components /////////////
+@Component({
+  selector: 'bank-account',
+  template: `
+   Bank Name: {{bank}}
+   Account Id: {{id}}
+ `
+})
+export class BankAccountComponent {
+  @Input() bank: string;
+  @Input('account') id: string;
+&nbsp;
+  // Removed on 12/02/2016 when ceased public discussion of the `Renderer`. Revive in future?
+  // constructor(private renderer: Renderer, private el: ElementRef ) {
+  //   renderer.setElementProperty(el.nativeElement, 'customProperty', true);
+  // }
+}
+&nbsp;
+/** A component with attributes, styles, classes, and property setting */
+@Component({
+  selector: 'bank-account-parent',
+  template: `
+   &lt;bank-account
+      bank="RBC"
+      account="4747"
+      [style.width.px]="width"
+      [style.color]="color"
+      [class.closed]="isClosed"
+      [class.open]="!isClosed"&gt;
+   &lt;/bank-account&gt;
+ `
+})
+export class BankAccountParentComponent {
+  width = 200;
+  color = 'red';
+  isClosed = true;
+}
+&nbsp;
+@Component({
+  selector: 'lightswitch-comp',
+  template: `
+    &lt;button (click)="clicked()"&gt;Click me!&lt;/button&gt;
+    &lt;span&gt;{{message}}&lt;/span&gt;`
+})
+export class LightswitchComponent {
+  isOn = false;
+  clicked() { this.isOn = !this.isOn; }
+  get message() { return `The light is ${this.isOn ? 'On' : 'Off'}`; }
+}
+&nbsp;
+@Component({
+  selector: 'child-1',
+  template: `&lt;span&gt;Child-1({{text}})&lt;/span&gt;`
+})
+export class Child1Component {
+  @Input() text = 'Original';
+}
+&nbsp;
+@Component({
+  selector: 'child-2',
+  template: '&lt;div&gt;Child-2({{text}})&lt;/div&gt;'
+})
+export class Child2Component {
+  @Input() text: string;
+}
+&nbsp;
+@Component({
+  selector: 'child-3',
+  template: '&lt;div&gt;Child-3({{text}})&lt;/div&gt;'
+})
+export class Child3Component {
+  @Input() text: string;
+}
+&nbsp;
+@Component({
+  selector: 'input-comp',
+  template: `&lt;input [(ngModel)]="name"&gt;`
+})
+export class InputComponent {
+  name = 'John';
+}
+&nbsp;
+/* Prefer this metadata syntax */
+// @Directive({
+//   selector: 'input[value]',
+//   host: {
+//     '[value]': 'value',
+//     '(input)': 'valueChange.emit($event.target.value)'
+//   },
+//   inputs:  ['value'],
+//   outputs: ['valueChange']
+// })
+// export class InputValueBinderDirective {
+//   value: any;
+//   valueChange: EventEmitter&lt;any&gt; = new EventEmitter();
+// }
+&nbsp;
+// As the styleguide recommends
+<span class="fstat-no" title="function not covered" >@Directive({ selector: 'input[value]' })</span>
+export class InputValueBinderDirective {
+  @HostBinding()
+  @Input()
+  value: any;
+&nbsp;
+  @Output()
+  valueChange: EventEmitter&lt;any&gt; = new EventEmitter();
+&nbsp;
+  @HostListener('input', ['$event.target.value'])
+<span class="fstat-no" title="function not covered" >  onInput(</span>value: any) { <span class="cstat-no" title="statement not covered" >this.valueChange.emit(value); </span>}
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >@Component({</span>
+  selector: 'input-value-comp',
+  template: `
+    Name: &lt;input [(value)]="name"&gt; {{name}}
+  `
+})
+export class InputValueBinderComponent {
+<span class="cstat-no" title="statement not covered" >  name = 'Sally'; </span>// initial value
+}
+&nbsp;
+@Component({
+  selector: 'parent-comp',
+  template: `Parent(&lt;child-1&gt;&lt;/child-1&gt;)`
+})
+export class ParentComponent { }
+&nbsp;
+@Component({
+  selector: 'io-comp',
+  template: `&lt;div class="hero" (click)="click()"&gt;Original {{hero.name}}&lt;/div&gt;`
+})
+export class IoComponent {
+  @Input() hero: Hero;
+  @Output() selected = new EventEmitter&lt;Hero&gt;();
+  click() { this.selected.emit(this.hero); }
+}
+&nbsp;
+@Component({
+  selector: 'io-parent-comp',
+  template: `
+  &lt;p *ngIf="!selectedHero"&gt;&lt;i&gt;Click to select a hero&lt;/i&gt;&lt;/p&gt;
+  &lt;p *ngIf="selectedHero"&gt;The selected hero is {{selectedHero.name}}&lt;/p&gt;
+  &lt;io-comp
+    *ngFor="let hero of heroes"
+    [hero]=hero
+    (selected)="onSelect($event)"&gt;
+  &lt;/io-comp&gt;
+  `
+})
+export class IoParentComponent {
+  heroes: Hero[] = [ {name: 'Bob'}, {name: 'Carol'}, {name: 'Ted'}, {name: 'Alice'} ];
+  selectedHero: Hero;
+  onSelect(hero: Hero) { this.selectedHero = hero; }
+}
+&nbsp;
+@Component({
+  selector: 'my-if-comp',
+  template: `MyIf(&lt;span *ngIf="showMore"&gt;More&lt;/span&gt;)`
+})
+export class MyIfComponent {
+  showMore = false;
+}
+&nbsp;
+@Component({
+  selector: 'my-service-comp',
+  template: `injected value: {{valueService.value}}`,
+  providers: [ValueService]
+})
+export class TestProvidersComponent {
+  constructor(public valueService: ValueService) {}
+}
+&nbsp;
+&nbsp;
+@Component({
+  selector: 'my-service-comp',
+  template: `injected value: {{valueService.value}}`,
+  viewProviders: [ValueService]
+})
+export class TestViewProvidersComponent {
+  constructor(public valueService: ValueService) {}
+}
+&nbsp;
+@Component({
+  selector: 'external-template-comp',
+  templateUrl: './demo-external-template.html'
+})
+export class ExternalTemplateComponent implements OnInit {
+  serviceValue: string;
+&nbsp;
+  constructor(@Optional() private service: ValueService) {  }
+&nbsp;
+  ngOnInit() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.service) { this.serviceValue = this.service.getValue(); }
+  }
+}
+&nbsp;
+@Component({
+  selector: 'comp-w-ext-comp',
+  template: `
+  &lt;h3&gt;comp-w-ext-comp&lt;/h3&gt;
+  &lt;external-template-comp&gt;&lt;/external-template-comp&gt;
+  `
+})
+export class InnerCompWithExternalTemplateComponent { }
+&nbsp;
+@Component({selector: 'needs-content', template: '&lt;ng-content&gt;&lt;/ng-content&gt;'})
+export class NeedsContentComponent {
+  // children with #content local variable
+  @ContentChildren('content') children: any;
+}
+&nbsp;
+///////// MyIfChildComp ////////
+@Component({
+  selector: 'my-if-child-1',
+&nbsp;
+  template: `
+    &lt;h4&gt;MyIfChildComp&lt;/h4&gt;
+    &lt;div&gt;
+      &lt;label&gt;Child value: &lt;input [(ngModel)]="childValue"&gt; &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;i&gt;Change log:&lt;/i&gt;&lt;/p&gt;
+    &lt;div *ngFor="let log of changeLog; let i=index"&gt;{{i + 1}} - {{log}}&lt;/div&gt;`
+})
+export class MyIfChildComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() value = '';
+  @Output() valueChange = new EventEmitter&lt;string&gt;();
+&nbsp;
+  get childValue() { return this.value; }
+  set childValue(v: string) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.value === v) { <span class="cstat-no" title="statement not covered" >return; </span>}
+    this.value = v;
+    this.valueChange.emit(v);
+  }
+&nbsp;
+  changeLog: string[] = [];
+&nbsp;
+  ngOnInitCalled = false;
+  ngOnChangesCounter = 0;
+  ngOnDestroyCalled = false;
+&nbsp;
+  ngOnInit()    {
+    this.ngOnInitCalled = true;
+    this.changeLog.push('ngOnInit called');
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.ngOnDestroyCalled = true;
+    this.changeLog.push('ngOnDestroy called');
+  }
+&nbsp;
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    for (let propName in changes) {
+      this.ngOnChangesCounter += 1;
+      let prop = changes[propName];
+      let cur  = JSON.stringify(prop.currentValue);
+      let prev = JSON.stringify(prop.previousValue);
+      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    }
+  }
+}
+&nbsp;
+///////// MyIfParentComp ////////
+&nbsp;
+@Component({
+  selector: 'my-if-parent-comp',
+  template: `
+    &lt;h3&gt;MyIfParentComp&lt;/h3&gt;
+    &lt;label&gt;Parent value:
+      &lt;input [(ngModel)]="parentValue"&gt;
+    &lt;/label&gt;
+    &lt;button (click)="clicked()"&gt;{{toggleLabel}} Child&lt;/button&gt;&lt;br&gt;
+    &lt;div *ngIf="showChild"
+         style="margin: 4px; padding: 4px; background-color: aliceblue;"&gt;
+      &lt;my-if-child-1  [(value)]="parentValue"&gt;&lt;/my-if-child-1&gt;
+    &lt;/div&gt;
+  `
+})
+export class MyIfParentComponent implements OnInit {
+  ngOnInitCalled = false;
+  parentValue = 'Hello, World';
+  showChild = false;
+  toggleLabel = 'Unknown';
+&nbsp;
+  ngOnInit() {
+    this.ngOnInitCalled = true;
+    this.clicked();
+  }
+&nbsp;
+  clicked() {
+    this.showChild = !this.showChild;
+    this.toggleLabel = this.showChild ? 'Close' : 'Show';
+  }
+}
+&nbsp;
+&nbsp;
+@Component({
+  selector: 'reverse-pipe-comp',
+  template: `
+    &lt;input [(ngModel)]="text"&gt;
+    &lt;span&gt;{{text | reverse}}&lt;/span&gt;
+  `
+})
+export class ReversePipeComponent {
+  text = 'my dog has fleas.';
+}
+&nbsp;
+@Component({template: '&lt;div&gt;Replace Me&lt;/div&gt;'})
+export class ShellComponent { }
+&nbsp;
+@Component({
+  selector: 'demo-comp',
+  template: `
+    &lt;h1&gt;Specs Demo&lt;/h1&gt;
+    &lt;my-if-parent-comp&gt;&lt;/my-if-parent-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;Input/Output Component&lt;/h3&gt;
+    &lt;io-parent-comp&gt;&lt;/io-parent-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;External Template Component&lt;/h3&gt;
+    &lt;external-template-comp&gt;&lt;/external-template-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;Component With External Template Component&lt;/h3&gt;
+    &lt;comp-w-ext-comp&gt;&lt;/comp-w-ext-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;Reverse Pipe&lt;/h3&gt;
+    &lt;reverse-pipe-comp&gt;&lt;/reverse-pipe-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;InputValueBinder Directive&lt;/h3&gt;
+    &lt;input-value-comp&gt;&lt;/input-value-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;Button Component&lt;/h3&gt;
+    &lt;lightswitch-comp&gt;&lt;/lightswitch-comp&gt;
+    &lt;hr&gt;
+    &lt;h3&gt;Needs Content&lt;/h3&gt;
+    &lt;needs-content #nc&gt;
+      &lt;child-1 #content text="My"&gt;&lt;/child-1&gt;
+      &lt;child-2 #content text="dog"&gt;&lt;/child-2&gt;
+      &lt;child-2 text="has"&gt;&lt;/child-2&gt;
+      &lt;child-3 #content text="fleas"&gt;&lt;/child-3&gt;
+      &lt;div #content&gt;!&lt;/div&gt;
+    &lt;/needs-content&gt;
+  `
+})
+export class DemoComponent { }
+//////// Aggregations ////////////
+&nbsp;
+export const demoDeclarations = [
+  DemoComponent,
+  BankAccountComponent, BankAccountParentComponent,
+  LightswitchComponent,
+  Child1Component, Child2Component, Child3Component,
+  ExternalTemplateComponent, InnerCompWithExternalTemplateComponent,
+  InputComponent,
+  InputValueBinderDirective, InputValueBinderComponent,
+  IoComponent, IoParentComponent,
+  MyIfComponent, MyIfChildComponent, MyIfParentComponent,
+  NeedsContentComponent, ParentComponent,
+  TestProvidersComponent, TestViewProvidersComponent,
+  ReversePipe, ReversePipeComponent, ShellComponent
+];
+&nbsp;
+export const demoProviders = [MasterService, ValueService];
+&nbsp;
+////////////////////
+////////////
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+&nbsp;
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: demoDeclarations,
+  providers:    demoProviders,
+  entryComponents: [DemoComponent],
+  bootstrap:       [DemoComponent]
+})
+export class DemoModule { }
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 27 2018 16:41:50 GMT+0300 (FLE Daylight Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

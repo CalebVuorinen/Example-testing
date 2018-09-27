@@ -1,0 +1,45 @@
+<h3 class="welcome"><i>{{welcome}}</i></h3>
+
+<label for="chartext">Text (5-10 characters):</label>
+<input #newText type="text" id="chartext" name="chartext"
+       placeholder="Max: 10 chars"
+       maxlength="10"
+       (keyup.enter)="validateCharText(newText.value)"/>
+
+<button (click)="validateCharText(newText.value)">Validate</button>
+
+<ul><li>{{newCharText}}</li></ul>
+
+<label for="full">Number (10-100):</label>
+<input #newNumber type="number" id="full" name="full"
+       placeholder="Min: 10, max: 100"
+       min="10" max="100"
+       (keyup.enter)="validateFullNumber(newNumber.value)"/>
+
+<button (click)="validateFullNumber(newNumber.value)">Validate</button>
+
+<ul><li>{{newFullNumber}}</li></ul>
+
+<div *ngIf="newFullNumber > 100" style=color:red> Over 100! </div>
+<div *ngIf="newFullNumber < 10" style=color:blue> Under 10! </div>
+
+<label for="list">Option:</label>
+<input #newList list="datalist1" id="list" name="list" 
+    (keyup.enter)="validateListItem(newList.value)">
+
+<button (click)="validateListItem(newList.value)">Validate</button>
+
+<ul><li>{{newListValue}}</li></ul>
+
+<div *ngIf="newListValue != '' && newListValue" style=color:red> Item not found! </div>
+<div *ngIf="newListValue == ''" style=color:blue> Empty item! </div>
+
+
+<datalist id="datalist1">
+    <option value="">
+    <option value="Opt1">
+    <option value="Opt2">
+    <option value="Opt3">
+    <option value="Opt4">
+    <option value="Opt5">
+  </datalist>
